@@ -2,7 +2,7 @@
 let classifier;
 // Model URL
 // HERE
-let imageModelURL = 'https://teachablemachine.withgoogle.com/models/XTD2oRA0J/';
+let imageModelURL = 'https://teachablemachine.withgoogle.com/models/w4UEY-UTF/';
 
 // Video
 let video;
