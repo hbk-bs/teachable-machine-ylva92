@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einstufung der Generationen</title>
+    <style>
+        /* Allgemeines Styling */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8ee8f; /* Helles Gelb */
+            font-family: 'Georgia', serif; /* Altmodische Schriftart */
+            color: #5a3d2b; /* Dunkelbraun */
+        }
+
+        header {
+            font-size: 10px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        canvas {
+            border: 5px solid #5a3d2b; /* Dunkelbrauner Rahmen */
+        }
+
+        #results {
+            margin-top: 20px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        a {
+            font-size: 10px;
+            color: #5a3d2b; /* Dunkelbraun */
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsives Design */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 18px;
+            }
+
+            canvas {
+                width: 90%;
+                height: auto;
+            }
+
+            #results {
+                font-size: 14px;
+            }
+
+            a {
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>Einstufung der Generationen</header>
+    <h2>Du bist...</h2>
+    <main>
+        <div id="sketch"></div>
+        <a href="index.js">Source Code</a>
+        <div id="results"></div>
+    </main>
+    <script src="lib/ml5.1.2.1.min.js"></script>
+    <script src="lib/p5.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
