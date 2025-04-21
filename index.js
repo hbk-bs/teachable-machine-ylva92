@@ -31,23 +31,39 @@ function setup() {
 function draw() {
     background(255, 250, 205); // Helles Gelb
 
-    if (showLink) {
-        // Display the link and text
-        fill(90, 61, 43); // Dunkelbraun
-        textSize(16);
-        textAlign(CENTER);
-        text('https://www.wikihow.com/Gen-Alpha-Slang', width / 2, height / 2 - 10);
-        textSize(12);
-        text('...dann brauchst du vielleicht Hilfe, die jungen Leute zu verstehen. (ich auch)', width / 2, height / 2 + 20);
-    } else {
-        // Draw the video
-        image(video, 0, 0);
+    // Draw the video
+    image(video, 0, 0);
 
-        // Draw the label on the canvas
-        fill(90, 61, 43); // Dunkelbraun
-        textSize(16);
-        textAlign(CENTER);
-        text(label, width / 2, height - 4);
+    // Draw the label on the canvas
+    fill(90, 61, 43); // Dunkelbraun
+    textSize(16);
+    textAlign(CENTER);
+    text(label, width / 2, height - 4);
+
+    // Display the link and text only the first time "von gestern" is detected
+    if (label === 'von gestern' && !showLink) {
+        showLink = true; // Set the flag to true to prevent repeated display
+
+        // Delay the display of the link and text by 5 seconds
+        setTimeout(() => {
+            const container = document.getElementById('sketch');
+            if (!document.getElementById('link-text')) {
+                const link = document.createElement('h5');
+                link.id = 'link-text';
+                link.style.color = '#5a3d2b'; // Dunkelbraun
+                link.style.textAlign = 'center';
+                link.style.fontSize = '15px'; // Schriftgröße des Links
+                link.innerHTML = '<a href="https://www.wikihow.com/Gen-Alpha-Slang" target="_blank" style="color: #5a3d2b; text-decoration: none;">https://www.wikihow.com/Gen-Alpha-Slang</a>';
+                container.appendChild(link);
+
+                const text = document.createElement('h5');
+                text.style.color = '#5a3d2b'; // Dunkelbraun
+                text.style.textAlign = 'center';
+                text.style.fontSize = '12px'; // Schriftgröße des Textes
+                text.textContent = '...dann brauchst du diese Infos vielleicht.';
+                container.appendChild(text);
+            }
+        }, 5000); // 5 Sekunden Verzögerung
     }
 }
 
